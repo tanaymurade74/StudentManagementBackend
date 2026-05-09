@@ -12,7 +12,7 @@ initializeDatabase();
 const PORT = 3000;
 
 app.get("/", (req, res) => {
-  res.send("Hello, Express!");
+  res.send("Student Management backend!");
 });
 
 app.get("/students", async (req, res) => {
