@@ -43,6 +43,20 @@ app.post("/students", async (req, res) => {
   }
 });
 
+app.delete("/students/:id", async(req, res) => {
+    const studentId = req.params.id;
+
+    try{
+        const deletedStudent = await Student.findByIdAndDelete(studentId);
+        if (!deletedStudent) {
+      return res.status(404).json({ message: "Student not found" });
+    }
+    res.status(200).json(deletedStudent)
+    }catch(error){
+        res.status(500).json({error: "Internal server error"})
+    }
+})
+
 app.post("/students/:id", async (req, res) => {
   const studentId = req.params.id;
   const updatedStudentData = req.body;
