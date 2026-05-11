@@ -51,7 +51,7 @@ app.delete("/students/:id", async(req, res) => {
         if (!deletedStudent) {
       return res.status(404).json({ message: "Student not found" });
     }
-    res.status(200).json(deletedStudent)
+    return res.status(200).json(deletedStudent)
     }catch(error){
         res.status(500).json({error: "Internal server error"})
     }
